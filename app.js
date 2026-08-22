@@ -4,6 +4,8 @@ let container = document.querySelector(".msg-container");
 let newbtn = document.querySelector(".new-btn");
 let resetbtn = document.querySelector(".reset-btn");
 let turnO = true;
+let count = 0; //To Track Draw
+
 const winPat = [
     [0,1,2],
     [3,4,5],
@@ -17,9 +19,9 @@ const winPat = [
 
 const resetGame = () =>{
     turnO = true;
+    count = 0;
     enableBoxes();
 }
-
 boxes.forEach((box)=>{
     box.addEventListener("click",()=> {
         if(turnO){
@@ -31,10 +33,12 @@ boxes.forEach((box)=>{
             turnO = true; 
         }
         box.disabled = true; //To prevent selection of already clicked box
-
-        checkWinner();
+        count++;
+        let isWinner = checkWinner();
+        if (count === 9 && !isWinner) {
+            gameDraw();
+        }
     });
-
 });
 
 const disableBoxes = () =>{
@@ -56,6 +60,11 @@ const winnerMsg = (winner) =>{
     container.classList.remove("hide");
 };
 
+const gameDraw = () => {
+    msg.innerText = `Game was a Draw.`;
+    container.classList.remove("hide");
+};
+
 const checkWinner = () =>{
     for(let pattern of winPat){
         let pos1 = boxes[pattern[0]].innerText;
@@ -67,9 +76,11 @@ const checkWinner = () =>{
                 console.log("Winner" , pos1);
                 winnerMsg(pos1);
                 disableBoxes();
+                return true;
             }
         }
     }
+    return false;
 }
 
 newbtn.addEventListener("click",resetGame);
