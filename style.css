@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #80ced7, #4f9da6);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #003249;
+}
+
+/* Main container */
+.container {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Game board */
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vmin;
+    padding: 1.5vmin;
+}
+
+/* Individual boxes */
+.box {
+    height: 18vmin;
+    width: 18vmin;
+    border: none;
+    border-radius: 2.2vmin;
+    background: #FFE2D1;
+    color: #003249;
+    font-size: 8vmin;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow:
+        0 0.8vmin 1.5vmin rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease;
+}
+
+/* Hover effect */
+.box:hover:not(:disabled) {
+    transform: translateY(-0.6vmin);
+    background-color: #fff0e8;
+
+    box-shadow:
+        0 1.2vmin 2vmin rgba(0, 0, 0, 0.3);
+}
+
+/* Click effect */
+.box:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+/* Disabled boxes */
+.box:disabled {
+    cursor: not-allowed;
+}
+
+/* Reset & New Game buttons */
+.reset-btn,
+.new-btn {
+    padding: 1.5vmin 3vmin;
+    background-color: #CCDBDC;
+    border: none;
+    border-radius: 1.5vmin;
+    color: #DB5461;
+    font-weight: bold;
+    font-size: 2vmin;
+    cursor: pointer;
+
+    box-shadow: 0 0.6vmin 1.2vmin rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 0.15s ease,
+        background-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.reset-btn:hover,
+.new-btn:hover {
+    background-color: #e5eeee;
+    transform: translateY(-0.4vmin);
+
+    box-shadow:
+        0 1vmin 1.8vmin rgba(0, 0, 0, 0.25);
+}
+
+.reset-btn:active,
+.new-btn:active {
+    transform: scale(0.95);
+}
+
+/* Winner message container */
+.msg-container {
+    height: 8vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vmin;
+}
+
+/* Winner message */
+#msg {
+    font-size: 5vmin;
+    color: darkgoldenrod;
+    font-weight: bold;
+    text-shadow: 0 0.5vmin 1vmin rgba(0, 0, 0, 0.2);
+}
+
+/* Hide element */
+.hide {
+    display: none;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .game {
+        height: 90vmin;
+        width: 90vmin;
+        gap: 2vmin;
+    }
+
+    .box {
+        height: 27vmin;
+        width: 27vmin;
+        font-size: 12vmin;
+    }
+
+    #msg {
+        font-size: 4vmin;
+    }
+
+    .reset-btn,
+    .new-btn {
+        font-size: 4vmin;
+        padding: 2vmin 4vmin;
+    }
+}
