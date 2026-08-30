@@ -1,0 +1,30 @@
+{
+  "name": "tic-tac-toe-game",
+  "version": "1.0.0",
+  "description": "A classic, interactive Tic-Tac-Toe game built for the web. This project is a straightforward implementation of the popular childhood game, playable directly in your browser.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon src/main.js",
+    "start": "node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muhammad-Khubaib-Siddiqui/Tic-Tac-Toe-Game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Muhammad-Khubaib-Siddiqui/Tic-Tac-Toe-Game/issues"
+  },
+  "homepage": "https://github.com/Muhammad-Khubaib-Siddiqui/Tic-Tac-Toe-Game#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
