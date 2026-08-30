@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby - Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="extended-page">
+
+    <div style="width: 100%; max-width: 800px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 2vmin;">
+        <h1 style="color: #003249; font-size: 4vmin;">WELCOME BACK, User</h1>
+        <a href="login.html" class="action-btn" style="width: auto;">Logout</a>
+    </div>
+
+    <div class="lobby-layout">
+        
+        <div class="panel-card lobby-card">
+            <h2>CREATE ROOM</h2>
+            <p>Play with a friend. (2 Player Room)</p>
+            <button id="create-room-btn" class="action-btn" style="margin-top: 2vmin;">CREATE ROOM</button>
+        </div>
+
+        <div class="panel-card lobby-card">
+            <h2>JOIN ROOM</h2>
+            <p>Enter your friend's 6-character code.</p>
+            <div class="input-group" style="margin: 2vmin 0;">
+                <input type="text" id="join-room-input" class="input-field" placeholder="e.g. AB12CD" maxlength="6" style="text-align: center; font-size: 3vmin; letter-spacing: 5px; text-transform: uppercase;">
+                <div class="error-text" id="join-error"></div>
+            </div>
+            <button id="join-room-btn" class="action-btn">JOIN ROOM</button>
+        </div>
+
+    </div>
+
+    <script src="js/lobby.js"></script>
+</body>
+</html>
+

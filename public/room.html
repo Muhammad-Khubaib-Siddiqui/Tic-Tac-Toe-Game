@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room - Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="extended-page" style="display: block;">
+
+    <div class="room-header">
+        <h1 style="color: #003249; font-size: 4vmin;">2 PLAYER MATCH</h1>
+        <div class="room-code-display">ROOM <span id="display-code">------</span></div>
+        <p id="room-status-text" style="color: #003249; font-weight: bold; font-size: 3vmin;">1 / 2 PLAYERS</p>
+        <button id="leave-room-btn" class="action-btn" style="width: auto; margin-top: 1vmin; padding: 1vmin 2vmin;">Leave Room</button>
+    </div>
+
+    <!-- WAITING UI -->
+    <div id="waiting-section">
+        <div class="players-row">
+            <div class="player-card">
+                <h3>PLAYER 1</h3>
+                <p style="font-weight: bold; color: #DB5461; font-size: 3vmin;">👤 YOU</p>
+                <div class="player-status status-ready" id="p1-status">READY</div>
+            </div>
+
+            <div class="vs-text">VS</div>
+
+            <div class="player-card" style="opacity: 0.8;">
+                <h3>PLAYER 2</h3>
+                <p id="p2-name" style="font-weight: bold; color: #555; font-size: 3vmin;">👤 Waiting...</p>
+                <div class="player-status status-waiting" id="p2-status">WAITING</div>
+            </div>
+        </div>
+
+        <div class="panel-card" style="max-width: 600px;">
+            <h2 id="waiting-msg" style="color: #003249;">Waiting for opponent...</h2>
+            <p>Share the room code with your friend. Only one other player can join.</p>
+            
+            <div style="display: flex; gap: 2vmin; justify-content: center; flex-wrap: wrap; margin-top: 2vmin;">
+                <button id="copy-code-btn" class="action-btn" style="width: auto;">COPY CODE</button>
+                <button id="start-game-btn" class="action-btn" style="width: auto;" disabled>START GAME</button>
+            </div>
+            
+            <!-- Hidden simulation buttons for frontend-only demo -->
+            <div style="display: flex; gap: 1vmin; justify-content: center; margin-top: 2vmin;">
+                <button id="sim-join-btn" style="background: transparent; border: 1px solid #999; color: #555; cursor: pointer; padding: 0.5vmin;" title="Frontend Demo Only">Sim P2 Join</button>
+                <button id="sim-full-btn" style="background: transparent; border: 1px solid #999; color: #555; cursor: pointer; padding: 0.5vmin;" title="Frontend Demo Only">Sim Full</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXACT EXISTING GAME UI (Hidden until start) -->
+    <div id="game-section" class="hide" style="text-align: center;">
+        <h1 style="padding-top: 4vmin; height: 16vmin; font-size: 8vmin; color:#003249;">TIC✔️TAC✖️TOE⭕</h1>
+        <div class="msg-container hide">
+            <p id="msg">You Win!</p>
+        </div>
+        <main>
+            <div class="container" style="min-height: auto; margin-bottom: 2vmin;">
+                <div class="game">
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                    <button class="box"></button>
+                </div>
+            </div>
+        </main>
+        <button class="reset-btn">Reset game</button>
+        <button class="new-btn">New Game</button>
+    </div>
+
+    <!-- ROOM FULL UI (Hidden) -->
+    <div id="room-full-ui" class="room-full-overlay hide">
+        <div class="panel-card" style="text-align: center;">
+            <h1 style="color: #DB5461;">ROOM FULL</h1>
+            <p style="font-weight: bold; font-size: 3vmin; margin-bottom: 2vmin;">2 / 2 PLAYERS</p>
+            <p>This room already has 2 players.</p>
+            <p>Please create a new room or join another room.</p>
+            <button class="action-btn" onclick="window.location.href='lobby.html'" style="margin-top: 3vmin;">BACK TO LOBBY</button>
+        </div>
+    </div>
+
+    <script src="js/room.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+

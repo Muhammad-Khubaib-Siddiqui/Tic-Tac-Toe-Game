@@ -9,8 +9,8 @@ app.use(express.json());
 
 //Routes
 app.post('/auth/signup', (req, res) => {
-  res.send('Hello World!')
-    res.sendFile(path.join(__dirname,'..','public/index.html'))
+    console.log(req);
+    res.send("success");
 })
 
 app.listen(port, () => {
